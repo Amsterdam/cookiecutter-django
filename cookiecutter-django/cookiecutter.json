@@ -1,0 +1,8 @@
+{
+    "project_name": "Name of the project",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+    "git_repository": "Full git address of the repository (eq. https://github.com/Amsterdam/example.git)",
+    "rabbitmq_enabled": [true, false],
+    "celery_enabled": [true, false],
+    "_extensions": ["jinja_ext.random_string.RandomExtension"]
+}

@@ -1,0 +1,23 @@
+version: '3.0'
+services:
+
+  database:
+    image: amsterdam/postgres
+    environment:
+      POSTGRES_PASSWORD: insecure
+      POSTGRES_USER: {{ cookiecutter.project_slug }}
+      POSTGRES_DB: {{ cookiecutter.project_slug }}
+
+  tests:
+    build: ../../
+    links:
+      - database:{{ cookiecutter.project_slug }}_db
+    environment:
+      DATABASE_NAME: {{ cookiecutter.project_slug }}
+      DATABASE_USER: {{ cookiecutter.project_slug }}
+      DATABASE_PASSWORD: insecure
+      PARKEERVAKKEN_OS_PASSWORD:
+      ENVIRONMENT: test
+    volumes:
+        - ./run_tests.sh:/app/run_tests.sh
+    command: /app/run_tests.sh

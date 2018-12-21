@@ -1,0 +1,5 @@
+features:
+  - name: celery
+    enabled: {{ cookiecutter.celery_enabled|lower }}
+    resources:
+        - api/src/{{cookiecutter.project_slug}}/celery.py
