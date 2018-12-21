@@ -4,36 +4,21 @@
 ### Install procedure ###
 
 ```
-git clone https://github.com/Amsterdam/afvalcontainers.git {{ cookiecutter.project_slug }}
+git clone {{ cookiecutter.git_repository }} {{ cookiecutter.project_slug }}
 cd {{ cookiecutter.project_slug }}
 ```
 
-Start the docker database and run the download en upload scripts.
+Start the docker containers manually
 ```
-docker-compose build
-docker-compose up
+docker-compose up -d
 ```
 
 #### Local development ####
 
-Create a local environment and activate it:
+To create the virtualenvironment (python3) and install requirements run:
 ```
-virtualenv --python=$(which python3) venv
-source venv/bin/activate
+make virtualenv
 ```
-
-Start development database
-
-
-```
-	docker-compose up database
-```
-
-
-```
-pip install -r requirements.txt
-```
-
 
 {{ cookiecutter.project_slug }} API
 ==================
@@ -41,8 +26,6 @@ pip install -r requirements.txt
 This is a standard Django Rest Framework API.
 
 ```
-	docker-compose up database
-	python manage.py runserver
+docker-compose up database
+python manage.py runserver
 ```
-
-

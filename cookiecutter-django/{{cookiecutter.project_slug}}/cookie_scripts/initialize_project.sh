@@ -4,9 +4,9 @@
 function initialize_git {
     if [ ! -e .git ]; then
         git init
-        git checkout -b develop
+        git checkout -b master
         git remote add origin "{{cookiecutter.git_repository}}"
-    fi 
+    fi
 }
 
 function generate_requirements {
@@ -18,7 +18,7 @@ function docker_up {
 }
 
 function migrate {
-    sleep 2
+    sleep 5
     docker exec {{cookiecutter.project_slug}}_api_1 python ./manage.py migrate
 }
 

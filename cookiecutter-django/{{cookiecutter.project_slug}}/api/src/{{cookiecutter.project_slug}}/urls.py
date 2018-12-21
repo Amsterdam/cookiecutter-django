@@ -6,7 +6,7 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^ping/$', views.PingView.as_view(), name='ping'),
+    url(r'^{{ cookiecutter.project_slug.replace('_', '-') }}/ping/$', views.PingView.as_view(), name='ping'),
 ]
 
 if settings.DEBUG:

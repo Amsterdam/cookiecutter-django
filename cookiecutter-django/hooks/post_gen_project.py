@@ -23,6 +23,7 @@ def delete_resource(resource):
     elif os.path.isdir(resource):
         shutil.rmtree(resource)
 
+
 if __name__ == "__main__":
     ret = subprocess.call(["cookie_scripts/initialize_project.sh"])
     if ret != 0:
@@ -30,4 +31,5 @@ if __name__ == "__main__":
 
     delete_resources_for_disabled_features()
     delete_resource('cookie_scripts')
+    delete_resource('install_python_requirements.sh')
     delete_resource(MANIFEST)
